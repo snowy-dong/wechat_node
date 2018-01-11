@@ -1,5 +1,7 @@
 #1 npm install -g express-generator
+
 #2 npm install
+
 #3 SET DEBUG=weixin:* & npm start
 
 example
