@@ -1,9 +1,9 @@
 var express = require('express');
 var crypto = require('crypto');
 var router = express.Router();
-var getTuringResponse = require('./getTuringResponse')
-var autoReply = require('./autoReply')
-var token = "snowy"; //此处需要你自己修改！
+var getTuringResponse = require('../module/getTuringResponse')
+var autoReply = require('../module/autoReply')
+var config = require('../config/config')
 /* GET home page. */
 router.get('/', function (req, res, next) {
   var signature = req.query.signature;
@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 
   /*  加密/校验流程如下： */
   //1. 将token、timestamp、nonce三个参数进行字典序排序
-  var array = new Array(token, timestamp, nonce);
+  var array = new Array(config.token, timestamp, nonce);
   array.sort();
   var str = array.toString().replace(/,/g, "");
 
