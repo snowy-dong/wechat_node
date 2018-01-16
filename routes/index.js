@@ -28,8 +28,9 @@ router.get('/', function (req, res, next) {
     res.send("error");
   }
 });
-router.post('/', function (req, res) {
 
+// 获取微信转发的消息
+router.post('/', function (req, res) {
   res.writeHead(200, {
     'Content-Type': 'application/xml'
   });
@@ -44,7 +45,6 @@ router.post('/', function (req, res) {
   //   '</xml>';
   // res.end(resMsg);
   var content = req.body.xml.content;
-
   getTuringResponse(encodeURI(content)).then(function (data) {
     var response = JSON.parse(data);
     var resMsg = autoReply(req.body.xml, response.text);

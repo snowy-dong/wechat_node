@@ -1,5 +1,6 @@
 const request = require('request');
 
+// 转发
 function autoReply(requestData, info) {
   switch (requestData.msgtype) {
     case 'text':
