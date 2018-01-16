@@ -1,16 +1,19 @@
+用node 获取公众号信息 生成签名等信息 响应给客户端
+
 #1 npm install -g express-generator
 
 #2 npm install
 
 #3 SET DEBUG=weixin:* & npm start
 
-example
 
-#1 npm install -g express-generator
+example 
 
-#2 express porjectName
+#e1 npm install -g express-generator
 
-#3 cd porjectName && npm install
+#e2 express porjectName
 
-#4 SET DEBUG=weixin:* & npm start
+#e3 cd porjectName && npm install
+
+#e4 SET DEBUG=weixin:* & npm start
 
