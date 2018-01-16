@@ -31,14 +31,12 @@ var raw = function (args) {
  * @returns
  */
 var sign = function (jsapi_ticket, url) {
-  console.log('sign')
   var ret = {
     jsapi_ticket: jsapi_ticket,
     nonceStr: createNonceStr(),
     timestamp: createTimestamp(),
     url: url
   };
-  console.log(ret)
   var string = raw(ret);
   var crypto = require('crypto');
   var sha1Code = crypto.createHash("sha1");

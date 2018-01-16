@@ -13,6 +13,7 @@ var getConfig = require('./routes/getConfig')
 
 var app = express();
 
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 // 设置 views 文件夹为存放视图文件的目录，即存放模板文件的地方，dirname 为全局变量，存储当前正在执行的脚本所在的目录。
 app.set('views', path.join(__dirname, 'views'));
 
@@ -63,6 +64,7 @@ app.all('*', function (req, res, next) {
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
+  console.log(1)
   next(err);
 });
 
@@ -71,7 +73,7 @@ app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
+  console.log(2)
   // render the error page
   res.status(err.status || 500);
   res.render('error');
