@@ -5,14 +5,14 @@ var config = require('../config/config')
 var router = express.Router();
 router.get('/', function (req, res, next) {
   getAccessToken().then(function (data) {
-    return getTicket(JSON.parse(data).access_token).then((data) => {
-      let resp = JSON.parse(data)
-      let signs = sign(resp.ticket, config.url)
-      signs.appId = config.appId
-      res.json(signs)
-    }).catch((err) => {
-      console.log('err:' + err)
-    })
+    return getTicket(JSON.parse(data).access_token)
+  }).then((data) => {
+    let resp = JSON.parse(data)
+    let signs = sign(resp.ticket, config.url)
+    signs.appId = config.appId
+    res.json(signs)
+  }).catch((err) => {
+    console.log('err:' + err)
   })
 });
 
